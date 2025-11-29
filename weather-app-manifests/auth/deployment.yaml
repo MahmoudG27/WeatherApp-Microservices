@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: auth-container
-        image: elnabatshy/weatherapp-auth:v2
+        image: elnabatshy/weatherapp-auth:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000

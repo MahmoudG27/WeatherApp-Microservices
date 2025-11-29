@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: weather-ui
-        image: elnabatshy/weatherapp-ui:v4
+        image: elnabatshy/weatherapp-ui:v1
         env:
         - name: AUTH_HOST
           value: "http://weatherapp-auth.default.svc.cluster.local:3000"
         - name: WEATHER_HOST
-          value: "http://weatherapp-service.default.svc.cluster.local:4000"
+          value: "http://weatherapp-weather.default.svc.cluster.local:4000"
         ports:
         - name: http
           containerPort: 80

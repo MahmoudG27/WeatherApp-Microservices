@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: weather-service
+  name: weatherapp-weather
 spec:
   replicas: 2
   selector:
@@ -14,26 +14,26 @@ spec:
     spec:
       containers:
       - name: weather
-        image: elnabatshy/weatherapp-service:v1
+        image: elnabatshy/weatherapp-weather:v1
         ports:
         - containerPort: 4000
         env:
         - name: WEATHER_API_KEY
           valueFrom:
             secretKeyRef:
-              name: weather-secret
-              key: weather-api-key
+              name: weatherapi-secret
+              key: api-key
 
         readinessProbe:
           httpGet:
             path: /health
             port: 4000
-          initialDelaySeconds: 5
+          initialDelaySeconds: 3
           periodSeconds: 5
 
         livenessProbe:
           httpGet:
             path: /health
             port: 4000
-          initialDelaySeconds: 10
+          initialDelaySeconds: 5
           periodSeconds: 10
