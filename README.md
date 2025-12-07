@@ -72,9 +72,9 @@ docker push <your-dockerhub>/weatherapp-ui:latest
 Then update the images in Kubernetes deployments:
 
 ``` bash
-kubectl apply -f k8s/auth/
-kubectl apply -f k8s/weather/
-kubectl apply -f k8s/ui/
+kubectl apply -f weather-app-manifests/auth/
+kubectl apply -f weather-app-manifests/weather/
+kubectl apply -f weather-app-manifests/ui/
 ```
 
 ------------------------------------------------------------------------
